@@ -18,7 +18,7 @@ let dragStartY
 
 let rectX = 200
 let rectY = 200
-const rectWidth = 300
+let rectWidth = 300
 const rectHeight = 5
 
 let level = 1
@@ -148,11 +148,15 @@ function detectCollision() {
         vx *= 0.9
         vy *= -0.3
 
-        if (Math.abs(vx) < 0.1 && Math.abs(vy) < 0.1) {
-          ctx.font = "100px serif"
-          ctx.textAlign = "center"
-          ctx.fillStyle = "blue"
-          ctx.fillText("YOU WON!!!", canvas.width / 2, canvas.height / 2)
+        if (Math.abs(vx) < 0.1 && Math.abs(vy) < 0.1 && !selectedBall) {
+          // ctx.font = "100px serif"
+          // ctx.textAlign = "center"
+          // ctx.fillStyle = "blue"
+          // ctx.fillText("YOU WON!!!", canvas.width / 2, canvas.height / 2)
+          level += 1
+          r /= 1.5
+          rectWidth /= 1.5
+          x = 10
         }
       } else {
         // bottom
